@@ -333,8 +333,39 @@ jobs:
           if-no-files-found: ignore
           retention-days: 14
 
+  release-gates:
+    name: Release Gates
+    needs: [clippy, test, e2e, provider-integration]
+    if: always()
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - name: Verify required release gates passed
+        env:
+          CLIPPY_RESULT: ${{ needs.clippy.result }}
+          TEST_RESULT: ${{ needs.test.result }}
+          E2E_RESULT: ${{ needs.e2e.result }}
+          PROVIDER_RESULT: ${{ needs.provider-integration.result }}
+          IS_TAG_RELEASE: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') }}
+        run: |
+          failed=0
+          for gate in CLIPPY_RESULT TEST_RESULT E2E_RESULT; do
+            result="${!gate}"
+            if [ "$result" != "success" ]; then
+              echo "::error::$gate was $result"
+              failed=1
+            fi
+          done
+
+          if [ "$IS_TAG_RELEASE" = "true" ] && [ "$PROVIDER_RESULT" != "success" ]; then
+            echo "::error::PROVIDER_RESULT was $PROVIDER_RESULT"
+            failed=1
+          fi
+
+          exit "$failed"
+
   build-deb:
-    needs: [clippy, test, e2e]
+    needs: release-gates
     strategy:
       matrix:
         include:
@@ -437,7 +468,7 @@ jobs:
             target/${{ matrix.target }}/debian/*.crt
 
   build-rpm:
-    needs: [clippy, test, e2e]
+    needs: release-gates
     strategy:
       matrix:
         include:
@@ -535,7 +566,7 @@ jobs:
             target/${{ matrix.target }}/generate-rpm/*.crt
 
   build-arch:
-    needs: [clippy, test, e2e]
+    needs: release-gates
     strategy:
       matrix:
         include:
@@ -653,7 +684,7 @@ jobs:
             *.pkg.tar.zst.crt
 
   build-appimage:
-    needs: [clippy, test, e2e]
+    needs: release-gates
     strategy:
       matrix:
         include:
@@ -794,7 +825,7 @@ jobs:
             *.AppImage.crt
 
   build-snap:
-    needs: [clippy, test, e2e]
+    needs: release-gates
     runs-on: ubuntu-latest
     name: Build Snap
     permissions:
@@ -848,7 +879,7 @@ jobs:
             ${{ steps.build-snap.outputs.snap }}.crt
 
   build-homebrew-binaries:
-    needs: [clippy, test, e2e]
+    needs: release-gates
     strategy:
       matrix:
         include:
@@ -958,7 +989,7 @@ jobs:
             *.tar.gz.crt
 
   build-macos-app:
-    needs: [clippy, test, e2e]
+    needs: release-gates
     runs-on: macos-latest
     name: Build macOS app
     timeout-minutes: 180
@@ -1147,7 +1178,7 @@ jobs:
           fi
 
   build-windows-exe:
-    needs: [clippy, test, e2e]
+    needs: release-gates
     runs-on: windows-latest
     name: Build .exe (x86_64)
     permissions:
@@ -1247,7 +1278,7 @@ jobs:
 
   build-docker:
     if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.dry_run) }}
-    needs: [clippy, test, e2e]
+    needs: release-gates
     strategy:
       matrix:
         include:
