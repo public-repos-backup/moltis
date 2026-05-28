@@ -237,7 +237,9 @@ jobs:
       - name: Install QMD CLI
         if: ${{ env.RELEASE_DRY_RUN != 'true' }}
         run: |
-          npm install -g @tobilu/qmd
+          npm install --prefix "$RUNNER_TEMP/qmd-cli" @tobilu/qmd
+          echo "$RUNNER_TEMP/qmd-cli/node_modules/.bin" >> "$GITHUB_PATH"
+          export PATH="$RUNNER_TEMP/qmd-cli/node_modules/.bin:$PATH"
           qmd --version
       - uses: taiki-e/install-action@f176c07a0a40cbfdd08ee9aa8bf1655701d11e69 # v2.67.25
         if: ${{ env.RELEASE_DRY_RUN != 'true' }}
