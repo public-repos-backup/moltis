@@ -25,6 +25,10 @@ html.dark .slidev-layout {
   color: rgb(3 7 18);
 }
 
+.slidev-layout .shadow-sm {
+  box-shadow: none !important;
+}
+
 .slidev-layout h1 {
   margin: 0 0 1.5rem;
   color: rgb(3 7 18);

@@ -19,7 +19,7 @@ drawings:
       <span class="opacity-50">•</span>
       <span>June 4, 2026</span>
     </div>
-    <img src="https://www.moltis.org/favicon.svg" alt="Moltis logo" class="h-16 w-16 rounded-2xl shadow-md" />
+    <img src="https://www.moltis.org/favicon.svg" alt="Moltis logo" class="h-16 w-16" />
   </div>
 
   <div class="mt-9 max-w-5xl text-6xl leading-[1.05] font-semibold tracking-tight text-gray-950">
@@ -100,48 +100,48 @@ so I have a baseline for what solo engineering used to feel like."
 
 # What Moltis is
 
-<div class="mt-2 text-lg leading-7 text-gray-600">
+<div class="mt-1 text-base leading-6 text-gray-600">
   A <strong>local-first persistent personal agent server</strong>: one Rust binary between you, your tools, your memory, your channels, and multiple LLM providers.
 </div>
 
-<div class="mt-4 grid grid-cols-4 gap-4">
-  <div class="rounded-2xl border border-gray-200 bg-white px-5 py-3 shadow-sm">
-    <div class="text-sm uppercase tracking-[0.18em] text-gray-500">GitHub stars</div>
-    <div class="mt-1 text-5xl font-semibold text-gray-950">2.7K</div>
+<div class="mt-3 grid grid-cols-4 gap-3">
+  <div class="rounded-2xl border border-gray-200 bg-white px-4 py-2 shadow-sm">
+    <div class="text-xs uppercase tracking-[0.18em] text-gray-500">GitHub stars</div>
+    <div class="mt-1 text-4xl font-semibold text-gray-950">2.7K</div>
     <div class="mt-1 text-sm text-gray-600">moltis-org/moltis</div>
   </div>
-  <div class="rounded-2xl border border-gray-200 bg-white px-5 py-3 shadow-sm">
-    <div class="text-sm uppercase tracking-[0.18em] text-gray-500">Issues</div>
-    <div class="mt-1 text-4xl font-semibold text-gray-950">367</div>
+  <div class="rounded-2xl border border-gray-200 bg-white px-4 py-2 shadow-sm">
+    <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Issues</div>
+    <div class="mt-1 text-3xl font-semibold text-gray-950">367</div>
     <div class="mt-1 text-sm text-gray-600">49 open · 318 closed</div>
   </div>
-  <div class="rounded-2xl border border-gray-200 bg-white px-5 py-3 shadow-sm">
-    <div class="text-sm uppercase tracking-[0.18em] text-gray-500">Pull requests</div>
-    <div class="mt-1 text-4xl font-semibold text-gray-950">679</div>
+  <div class="rounded-2xl border border-gray-200 bg-white px-4 py-2 shadow-sm">
+    <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Pull requests</div>
+    <div class="mt-1 text-3xl font-semibold text-gray-950">679</div>
     <div class="mt-1 text-sm text-gray-600">12 open · 667 closed</div>
   </div>
-  <div class="rounded-2xl border border-gray-200 bg-white px-5 py-3 shadow-sm">
-    <div class="text-sm uppercase tracking-[0.18em] text-gray-500">Merged PRs</div>
-    <div class="mt-1 text-4xl font-semibold text-gray-950">566</div>
+  <div class="rounded-2xl border border-gray-200 bg-white px-4 py-2 shadow-sm">
+    <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Merged PRs</div>
+    <div class="mt-1 text-3xl font-semibold text-gray-950">566</div>
     <div class="mt-1 text-sm text-gray-600">shipping velocity</div>
   </div>
 </div>
 
-<div class="mt-4 grid grid-cols-3 gap-4">
-  <div class="rounded-2xl border border-cyan-200 bg-cyan-50 px-5 py-3 shadow-sm">
-    <div class="text-sm uppercase tracking-[0.18em] text-cyan-700">Gateway</div>
-    <div class="mt-2 text-2xl font-semibold text-gray-950">One place for agents</div>
-    <div class="mt-2 text-base leading-6 text-gray-700">Streaming chat, provider routing, coding agents, tools, sessions, and APIs.</div>
+<div class="mt-3 grid grid-cols-3 gap-3">
+  <div class="rounded-2xl border border-cyan-200 bg-cyan-50 px-4 py-2 shadow-sm">
+    <div class="text-xs uppercase tracking-[0.18em] text-cyan-700">Gateway</div>
+    <div class="mt-1 text-xl font-semibold text-gray-950">One place for agents</div>
+    <div class="mt-1 text-sm leading-5 text-gray-700">Streaming chat, provider routing, coding agents, tools, sessions, and APIs.</div>
   </div>
-  <div class="rounded-2xl border border-cyan-200 bg-cyan-50 px-5 py-3 shadow-sm">
-    <div class="text-sm uppercase tracking-[0.18em] text-cyan-700">Memory</div>
-    <div class="mt-2 text-2xl font-semibold text-gray-950">Persistent context</div>
-    <div class="mt-2 text-base leading-6 text-gray-700">Durable sessions, long-term memory, workspace files, project context, hooks, and cron.</div>
+  <div class="rounded-2xl border border-cyan-200 bg-cyan-50 px-4 py-2 shadow-sm">
+    <div class="text-xs uppercase tracking-[0.18em] text-cyan-700">Memory</div>
+    <div class="mt-1 text-xl font-semibold text-gray-950">Persistent context</div>
+    <div class="mt-1 text-sm leading-5 text-gray-700">Durable sessions, long-term memory, workspace files, project context, hooks, and cron.</div>
   </div>
-  <div class="rounded-2xl border border-fuchsia-200 bg-fuchsia-50 px-5 py-3 shadow-sm">
-    <div class="text-sm uppercase tracking-[0.18em] text-fuchsia-700">Control</div>
-    <div class="mt-2 text-2xl font-semibold text-gray-950">Runs on your machine</div>
-    <div class="mt-2 text-base leading-6 text-gray-700">Password/passkey auth, encrypted vault, sandboxing, local data, and self-hosted deploys.</div>
+  <div class="rounded-2xl border border-fuchsia-200 bg-fuchsia-50 px-4 py-2 shadow-sm">
+    <div class="text-xs uppercase tracking-[0.18em] text-fuchsia-700">Control</div>
+    <div class="mt-1 text-xl font-semibold text-gray-950">Runs on your machine</div>
+    <div class="mt-1 text-sm leading-5 text-gray-700">Password/passkey auth, encrypted vault, sandboxing, local data, and self-hosted deploys.</div>
   </div>
 </div>
 
